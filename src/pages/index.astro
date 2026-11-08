@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const projects = [
+  { title: 'FewFiu', type: 'Social platform · Full-stack', text: 'An exploration of new ways to connect people with places, nature, and meaningful entities.', href: 'https://fewfiu.com', action: 'Project website' },
+  { title: 'TeleportOps', type: 'Operations · Workforce software', text: 'Scheduling, workforce coordination, timesheets, and operational reporting in one product.', href: 'https://tops.beegoritmo.com', action: 'Explore application' },
+  { title: 'Beegoritmo', type: 'Application hub · Product showcase', text: 'A home for software applications and experiments developed under Plutonian Labs.', href: 'https://beegoritmo.com', action: 'Visit the hub' },
+];
+---
+<BaseLayout>
+  <div class="relative min-h-screen overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-40" style="background: radial-gradient(ellipse 45rem 35rem at 90% 10%, #0e4c54 0%, transparent 68%)"></div>
+    <div class="relative mx-auto max-w-6xl px-6 sm:px-10">
+      <header class="flex items-center justify-between border-b border-white/10 py-7">
+        <a href="/" aria-label="Home" class="text-lg font-extrabold tracking-tight">HH<span class="text-teal-300">.</span></a>
+        <nav aria-label="Primary navigation" class="flex gap-5 sm:gap-9 text-sm text-slate-300">
+          <a class="transition hover:text-teal-300" href="#about">About</a>
+          <a class="transition hover:text-teal-300" href="#work">Work</a>
+          <a class="transition hover:text-teal-300" href="#connect">Connect</a>
+        </nav>
+      </header>
+      <main>
+        <section class="flex min-h-[73vh] flex-col justify-center py-20 sm:py-28">
+          <p class="mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-teal-300/25 bg-teal-300/5 px-4 py-2 text-xs font-semibold uppercase tracking-[.18em] text-teal-300"><span class="h-2 w-2 rounded-full bg-teal-300"></span>Engineering × Software × AI</p>
+          <p class="mb-4 text-lg text-slate-300 sm:text-xl">Hello, I'm Hugo Hiraoka.</p>
+          <h1 class="max-w-5xl text-5xl font-semibold leading-[1.07] tracking-[-.055em] sm:text-7xl lg:text-[5.8rem]">Building at the intersection of <span class="text-teal-300">systems</span> and possibility.</h1>
+          <p class="mt-8 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">Electrical and telecommunications engineering, full-stack software development, machine learning, and business strategy—brought together to turn complex ideas into useful products.</p>
+          <div class="mt-11 flex flex-wrap gap-4">
+            <a href="#work" class="rounded-lg bg-teal-300 px-6 py-3 font-semibold text-slate-950 transition hover:bg-teal-200">Explore my work <span aria-hidden="true">↗</span></a>
+            <a href="#connect" class="rounded-lg border border-white/20 px-6 py-3 font-medium transition hover:border-teal-300/70">Get in touch</a>
+          </div>
+        </section>
+        <section id="about" class="scroll-mt-24 border-t border-white/10 py-20 sm:py-24">
+          <div class="grid gap-8 md:grid-cols-[1fr_2fr]">
+            <div><p class="text-xs uppercase tracking-[.2em] text-teal-300">01 / Perspective</p><h2 class="mt-4 text-3xl font-semibold tracking-tight">Beyond a single discipline.</h2></div>
+            <div class="space-y-5 text-lg leading-8 text-slate-300"><p>I work across engineering, software, and applied AI, connecting technical depth with product thinking and real-world constraints.</p><p class="text-slate-400">This site is a window into the systems I build, the problems I care about, and the ideas I'm exploring.</p></div>
+          </div>
+        </section>
+        <section id="work" class="scroll-mt-24 border-t border-white/10 py-20 sm:py-24">
+          <div class="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p class="text-xs uppercase tracking-[.2em] text-teal-300">02 / Selected work</p><h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Projects & products.</h2></div><p class="max-w-sm text-sm text-slate-400">Some of the ideas and products I'm actively developing.</p></div>
+          <div class="grid gap-5 md:grid-cols-3">
+            {projects.map((p, i) => <article class="flex flex-col rounded-2xl border border-white/10 bg-white/[.035] p-6 transition hover:border-teal-300/40"><p class="text-sm text-teal-300">0{i+1}</p><h3 class="mt-9 text-2xl font-semibold">{p.title}</h3><p class="mt-2 text-xs uppercase tracking-wider text-slate-500">{p.type}</p><p class="mt-6 grow leading-7 text-slate-300">{p.text}</p><a class="mt-9 inline-flex w-fit gap-2 font-semibold text-teal-300 hover:text-teal-200" href={p.href} target="_blank" rel="noopener noreferrer">{p.action}<span aria-hidden="true">↗</span></a></article>)}
+          </div>
+        </section>
+        <section id="connect" class="scroll-mt-24 border-t border-white/10 py-20 sm:py-24">
+          <p class="text-xs uppercase tracking-[.2em] text-teal-300">03 / Connect</p>
+          <h2 class="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">Let's build something meaningful.</h2>
+          <p class="mt-5 max-w-xl text-slate-400">Interested in engineering, software development, applied AI, or collaboration? Explore my work or get in touch through GitHub.</p>
+          <a class="mt-8 inline-flex rounded-lg border border-white/20 px-6 py-3 font-medium hover:border-teal-300/70" href="https://github.com/hugohiraoka" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
+        </section>
+      </main>
+      <footer class="flex flex-col gap-2 border-t border-white/10 py-8 text-sm text-slate-500 sm:flex-row sm:justify-between"><span>© {new Date().getFullYear()} Hugo Hiraoka</span><span>Built with Astro · Hosted on Cloudflare Pages</span></footer>
+    </div>
+  </div>
+</BaseLayout>
